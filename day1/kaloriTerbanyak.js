@@ -408,3 +408,45 @@ const listKalori = [
     ],
     [1312, 1921, 2644, 5044, 3336, 4520, 1253, 3184, 3732, 6754, 2139],
 ];
+
+const listJumlahKalori = [];
+const lengthOfListKalori = listKalori.length;
+for (let i = 0; i < lengthOfListKalori; i++) {
+    listJumlahKalori.push(jumlahArray(listKalori[i]));
+}
+
+function jumlahArray(array) {
+    let jumlah = 0;
+    const arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
+        jumlah += array[i];
+    }
+    return jumlah;
+}
+
+console.log(listJumlahKalori);
+console.log(
+    `total: ${jumlahArray(listJumlahKalori)}, mean: ${Math.ceil(
+        jumlahArray(listJumlahKalori) / listJumlahKalori.length
+    )}`
+);
+console.log(maxOfArray(listJumlahKalori));
+
+function maxOfArray(array) {
+    let maks = 0;
+    let index;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > maks) {
+            maks = array[i];
+            index = i;
+        }
+    }
+    return { maks, index };
+}
+
+const listJumlahKaloriSorted = listJumlahKalori.sort((a, b) => b - a);
+const top3 =
+    listJumlahKaloriSorted[0] +
+    listJumlahKaloriSorted[1] +
+    listJumlahKaloriSorted[2];
+console.log(top3);
