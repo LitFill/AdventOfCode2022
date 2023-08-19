@@ -23,7 +23,7 @@ const objJumlahKalori = {};
 const listJumlahKalori = [];
 
 for (let i = 0; i < listKalori.length; i++) {
-    objJumlahKalori[`${listKalori[i]}`] = jumlahArray(listKalori[i]);
+    // objJumlahKalori[`${listKalori[i]}`] = jumlahArray(listKalori[i]);
     listJumlahKalori.push(jumlahArray(listKalori[i]));
 }
 
@@ -35,8 +35,9 @@ function jumlahArray(array) {
     return jumlah;
 }
 
-console.log(objJumlahKalori);
+// console.log(objJumlahKalori);
 console.log(listJumlahKalori);
+console.log(`total: ${jumlahArray(listJumlahKalori)}, mean: ${Math.ceil(jumlahArray(listJumlahKalori)/listJumlahKalori.length)}`);
 console.log(maxOfArray(listJumlahKalori));
 // console.log(jumlahArray(listKalori[2]));
 
@@ -49,5 +50,5 @@ function maxOfArray(array) {
             index = i;
         }
     }
-    return {maks, index};
+    return { maks, index };
 }
