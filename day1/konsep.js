@@ -21,15 +21,16 @@ const listKalori = [
 
 const objJumlahKalori = {};
 const listJumlahKalori = [];
-
-for (let i = 0; i < listKalori.length; i++) {
+const lengthOfListKalori = listKalori.length;
+for (let i = 0; i < lengthOfListKalori; i++) {
     // objJumlahKalori[`${listKalori[i]}`] = jumlahArray(listKalori[i]);
     listJumlahKalori.push(jumlahArray(listKalori[i]));
 }
 
 function jumlahArray(array) {
     let jumlah = 0;
-    for (let i = 0; i < array.length; i++) {
+    const arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
         jumlah += array[i];
     }
     return jumlah;
