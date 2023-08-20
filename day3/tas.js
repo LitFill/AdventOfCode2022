@@ -301,6 +301,15 @@ const listBarangPerTas = [
     "rvNJJpLrvvLnJvNFFvZZZBWznBWGSDCMnCwz",
 ];
 
+const listBarangPerTasooo = [
+    "vJrwpWtwJgWrhcsFMMfFFhFp",
+    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+    "PmmdzqPrVvPwwTWBwg",
+    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+    "ttgJtRGJQctTZtZT",
+    "CrZsJsPPZsGzwwsLwLmpwMDw",
+];
+
 const panjangListBarangPerTas = listBarangPerTas.length;
 const listBarangTasKiri = [];
 const listBarangTasKanan = [];
@@ -345,7 +354,7 @@ for (let i = 0; i < panjangListBarangPerTas; i++) {
 const panjangListTasPerGrup = listTasPerGrup.length;
 for (let i = 0; i < panjangListTasPerGrup; i++) {
     listLencana.push(
-        itemDuplikat3(
+        itemDuplikatTiga(
             listTasPerGrup[i][0],
             listTasPerGrup[i][1],
             listTasPerGrup[i][2]
@@ -360,6 +369,9 @@ for (let i = 0; i < panjangListLencana; i++) {
 
 const jumlahNilaiPrioritasLencana = jumlahArray(listNilaiPrioritasLencana);
 console.log(`jawaban part 2: ${jumlahNilaiPrioritasLencana}`);
+// console.log(listTasPerGrup);
+// console.log(listLencana);
+// console.log(listNilaiPrioritasLencana);
 
 function itemDuplikat(string1, string2) {
     const charSet = new Set();
@@ -377,6 +389,7 @@ function itemDuplikat(string1, string2) {
     return null;
 }
 
+// fungsi ini salah
 function itemDuplikat3(string1, string2, string3) {
     const charSet = new Set();
 
@@ -395,6 +408,22 @@ function itemDuplikat3(string1, string2, string3) {
     }
 
     return null;
+}
+
+function itemDuplikatTiga(string1, string2, string3) {
+    const combinedChars = new Set([...string1, ...string2, ...string3]);
+
+    for (const char of combinedChars) {
+        if (
+            string1.includes(char) &&
+            string2.includes(char) &&
+            string3.includes(char)
+        ) {
+            return char;
+        }
+    }
+
+    return null; // Tidak ada karakter duplikat dalam ketiga string
 }
 
 function angkaPrioritasDari(string) {
