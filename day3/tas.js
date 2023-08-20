@@ -307,6 +307,14 @@ const listBarangTasKanan = [];
 
 for (let i = 0; i < panjangListBarangPerTas; i++) {
     const jumlahBarang = listBarangPerTas[i].length;
-    listBarangTasKiri.push(listBarangPerTas[i].slice(0, jumlahBarang));
-    listBarangTasKanan.push(listBarangPerTas[i].slice(jumlahBarang));
+    listBarangTasKiri.push(listBarangPerTas[i].slice(0, jumlahBarang/2));
+    listBarangTasKanan.push(listBarangPerTas[i].slice(jumlahBarang/2));
+}
+
+function itemDuplikat(string1, string2) {
+    const jumlahItem = (string1.length < string2.length) ? string1.length : string2.length;
+    
+    for (let i = 0; i < jumlahItem; i++) {
+        
+    }
 }
