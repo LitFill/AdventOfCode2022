@@ -305,6 +305,7 @@ const panjangListBarangPerTas = listBarangPerTas.length;
 const listBarangTasKiri = [];
 const listBarangTasKanan = [];
 const listBarangDuplikat = [];
+const listNilaiPrioritas = [];
 
 for (let i = 0; i < panjangListBarangPerTas; i++) {
     const jumlahBarang = listBarangPerTas[i].length;
@@ -318,6 +319,14 @@ for (let i = 0; i < jumlahTas; i++) {
         itemDuplikat(listBarangTasKiri[i], listBarangTasKanan[i])
     );
 }
+
+const panjangListBarangDuplikat = listBarangDuplikat.length;
+for (let i = 0; i < panjangListBarangDuplikat; i++) {
+    listNilaiPrioritas.push(angkaPrioritasDari(listBarangDuplikat[i]));
+}
+
+const jumlahNilaiPrioritas = jumlahArray(listNilaiPrioritas);
+console.log(`jawaban: ${jumlahNilaiPrioritas}`);
 
 function itemDuplikat(string1, string2) {
     const charSet = new Set();
@@ -333,4 +342,21 @@ function itemDuplikat(string1, string2) {
     }
 
     return null;
+}
+
+function angkaPrioritasDari(string) {
+    if (string.toLowerCase() === string) {
+        return string.charCodeAt(0) - 96;
+    } else {
+        return string.charCodeAt(0) - 38;
+    }
+}
+
+function jumlahArray(array) {
+    let jumlah = 0;
+    const arrayLength = array.length;
+    for (let i = 0; i < arrayLength; i++) {
+        jumlah += array[i];
+    }
+    return jumlah;
 }
