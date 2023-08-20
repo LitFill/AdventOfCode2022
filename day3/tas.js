@@ -306,5 +306,7 @@ const listBarangTasKiri = [];
 const listBarangTasKanan = [];
 
 for (let i = 0; i < panjangListBarangPerTas; i++) {
-    const jumlahBarang = listBarangPerTasi[i].length;
+    const jumlahBarang = listBarangPerTas[i].length;
+    listBarangTasKiri.push(listBarangPerTas[i].slice(0, jumlahBarang));
+    listBarangTasKanan.push(listBarangPerTas[i].slice(jumlahBarang));
 }
