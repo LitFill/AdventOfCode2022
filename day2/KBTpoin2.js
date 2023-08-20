@@ -2502,52 +2502,50 @@ const listMoves = [
 ];
 
 const lengthOfListMoves = listMoves.length;
-const listPoinPertama = [];
-const listPoinKedua = [];
-const listHasil = [];
+const listPoinHasil = [];
+const listLangkahSaya = [];
+const listPoinLangkah = [];
 
 for (let i = 0; i < lengthOfListMoves; i++) {
     switch (listMoves[i][1]) {
         case "X":
-            listPoinPertama.push(1);
+            listPoinHasil.push(0);
             break;
         case "Y":
-            listPoinPertama.push(2);
+            listPoinHasil.push(3);
             break;
         case "Z":
-            listPoinPertama.push(3);
+            listPoinHasil.push(6);
             break;
     }
 }
 
-const jumlahPoinPertama = jumlahArray(listPoinPertama);
-// console.log(listPoinPertama);
+const jumlahPoinHasil = jumlahArray(listPoinHasil);
 
 for (let i = 0; i < lengthOfListMoves; i++) {
-    hasilKBT(listMoves[i][0], listMoves[i][1]);
+    langkahkuKetika(listMoves[i][0], listMoves[i][1]);
 }
 
-const lengthOfListHasil = listHasil.length;
+const lengthOfListLangkahSaya = listLangkahSaya.length;
 
-for (let i = 0; i < lengthOfListHasil; i++) {
-    switch (listHasil[i]) {
-        case "kalah":
-            listPoinKedua.push(0);
+for (let i = 0; i < lengthOfListLangkahSaya; i++) {
+    switch (listLangkahSaya[i]) {
+        case "A":
+            listPoinLangkah.push(1);
             break;
-        case "seri":
-            listPoinKedua.push(3);
+        case "B":
+            listPoinLangkah.push(2);
             break;
-        case "menang":
-            listPoinKedua.push(6);
+        case "C":
+            listPoinLangkah.push(3);
             break;
     }
 }
 
-const jumlahPoinKedua = jumlahArray(listPoinKedua);
-const jumlahPoinTotal = jumlahPoinPertama + jumlahPoinKedua;
+const jumlahPoinLangkah = jumlahArray(listPoinLangkah);
+const jumlahPoinTotal = jumlahPoinHasil + jumlahPoinLangkah;
 
-// console.log(listPoinKedua);
-console.log(jumlahPoinTotal);
+console.log("jumlah total: " + jumlahPoinTotal);
 
 function jumlahArray(array) {
     let jumlah = 0;
@@ -2558,44 +2556,44 @@ function jumlahArray(array) {
     return jumlah;
 }
 
-function hasilKBT(langkahMusuh, langkahSaya) {
+function langkahkuKetika(langkahMusuh, hasil) {
     switch (langkahMusuh) {
         case "A":
-            switch (langkahSaya) {
+            switch (hasil) {
                 case "X":
-                    listHasil.push("seri");
+                    listLangkahSaya.push("C");
                     break;
                 case "Y":
-                    listHasil.push("menang");
+                    listLangkahSaya.push("A");
                     break;
                 case "Z":
-                    listHasil.push("kalah");
+                    listLangkahSaya.push("B");
                     break;
             }
             break;
         case "B":
-            switch (langkahSaya) {
+            switch (hasil) {
                 case "X":
-                    listHasil.push("kalah");
+                    listLangkahSaya.push("A");
                     break;
                 case "Y":
-                    listHasil.push("seri");
+                    listLangkahSaya.push("B");
                     break;
                 case "Z":
-                    listHasil.push("menang");
+                    listLangkahSaya.push("C");
                     break;
             }
             break;
         case "C":
-            switch (langkahSaya) {
+            switch (hasil) {
                 case "X":
-                    listHasil.push("menang");
+                    listLangkahSaya.push("B");
                     break;
                 case "Y":
-                    listHasil.push("kalah");
+                    listLangkahSaya.push("C");
                     break;
                 case "Z":
-                    listHasil.push("seri");
+                    listLangkahSaya.push("A");
                     break;
             }
             break;
