@@ -306,6 +306,9 @@ const listBarangTasKiri = [];
 const listBarangTasKanan = [];
 const listBarangDuplikat = [];
 const listNilaiPrioritas = [];
+const listTasPerGrup = [];
+const listLencana = [];
+const listNilaiPrioritasLencana = [];
 
 for (let i = 0; i < panjangListBarangPerTas; i++) {
     const jumlahBarang = listBarangPerTas[i].length;
@@ -326,7 +329,37 @@ for (let i = 0; i < panjangListBarangDuplikat; i++) {
 }
 
 const jumlahNilaiPrioritas = jumlahArray(listNilaiPrioritas);
-console.log(`jawaban: ${jumlahNilaiPrioritas}`);
+console.log(`jawaban part 1: ${jumlahNilaiPrioritas}`);
+
+for (let i = 0; i < Math.ceil(panjangListBarangPerTas / 3); i++) {
+    listTasPerGrup[i] = [];
+}
+
+for (let i = 0; i < panjangListBarangPerTas; i++) {
+    const angkaGrup = Math.floor(i / 3);
+    const angkaUrutan = i % 3;
+
+    listTasPerGrup[angkaGrup][angkaUrutan] = listBarangPerTas[i];
+}
+
+const panjangListTasPerGrup = listTasPerGrup.length;
+for (let i = 0; i < panjangListTasPerGrup; i++) {
+    listLencana.push(
+        itemDuplikat3(
+            listTasPerGrup[i][0],
+            listTasPerGrup[i][1],
+            listTasPerGrup[i][2]
+        )
+    );
+}
+
+const panjangListLencana = listLencana.length;
+for (let i = 0; i < panjangListLencana; i++) {
+    listNilaiPrioritasLencana.push(angkaPrioritasDari(listLencana[i]));
+}
+
+const jumlahNilaiPrioritasLencana = jumlahArray(listNilaiPrioritasLencana);
+console.log(`jawaban part 2: ${jumlahNilaiPrioritasLencana}`);
 
 function itemDuplikat(string1, string2) {
     const charSet = new Set();
@@ -338,6 +371,26 @@ function itemDuplikat(string1, string2) {
     for (let i = 0; i < string2.length; i++) {
         if (charSet.has(string2[i])) {
             return string2[i];
+        }
+    }
+
+    return null;
+}
+
+function itemDuplikat3(string1, string2, string3) {
+    const charSet = new Set();
+
+    for (let i = 0; i < string1.length; i++) {
+        charSet.add(string1[i]);
+    }
+
+    for (let i = 0; i < string2.length; i++) {
+        charSet.add(string2[i]);
+    }
+
+    for (let i = 0; i < string3.length; i++) {
+        if (charSet.has(string3[i])) {
+            return string3[i];
         }
     }
 
