@@ -304,17 +304,33 @@ const listBarangPerTas = [
 const panjangListBarangPerTas = listBarangPerTas.length;
 const listBarangTasKiri = [];
 const listBarangTasKanan = [];
+const listBarangDuplikat = [];
 
 for (let i = 0; i < panjangListBarangPerTas; i++) {
     const jumlahBarang = listBarangPerTas[i].length;
-    listBarangTasKiri.push(listBarangPerTas[i].slice(0, jumlahBarang/2));
-    listBarangTasKanan.push(listBarangPerTas[i].slice(jumlahBarang/2));
+    listBarangTasKiri.push(listBarangPerTas[i].slice(0, jumlahBarang / 2));
+    listBarangTasKanan.push(listBarangPerTas[i].slice(jumlahBarang / 2));
+}
+
+const jumlahTas = Math.min(listBarangTasKanan.length, listBarangTasKiri.length);
+for (let i = 0; i < jumlahTas; i++) {
+    listBarangDuplikat.push(
+        itemDuplikat(listBarangTasKiri[i], listBarangTasKanan[i])
+    );
 }
 
 function itemDuplikat(string1, string2) {
-    const jumlahItem = (string1.length < string2.length) ? string1.length : string2.length;
-    
-    for (let i = 0; i < jumlahItem; i++) {
-        
+    const charSet = new Set();
+
+    for (let i = 0; i < string1.length; i++) {
+        charSet.add(string1[i]);
     }
+
+    for (let i = 0; i < string2.length; i++) {
+        if (charSet.has(string2[i])) {
+            return string2[i];
+        }
+    }
+
+    return null;
 }
