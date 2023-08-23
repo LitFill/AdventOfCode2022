@@ -515,6 +515,20 @@ const listPerpindahan = [
     [2, 1, 6],
 ];
 
+// test pada contoh soal
+const listTumpukanPetiTest = [
+    ['Z', 'N'],
+    ['M', 'C', 'D'],
+    ['P']
+];
+
+const listPerpindahanTest = [
+    [1, 2, 1],
+    [3, 1, 3],
+    [2, 2, 1],
+    [1, 1, 2],
+];
+
 const panjangListPerpindahan = listPerpindahan.length;
 for (let i = 0; i < panjangListPerpindahan; i++) {
     pindahPeti(listPerpindahan[i]);
@@ -522,7 +536,8 @@ for (let i = 0; i < panjangListPerpindahan; i++) {
 
 const listPetiTeratas = [];
 for (let i = 0; i < listTumpukanPeti.length; i++) {
-    listPetiTeratas.push(listTumpukanPeti[i][-1]);
+    const panjangListTumpukanPetiI = listTumpukanPeti[i].length;
+    listPetiTeratas.push(listTumpukanPeti[i][panjangListTumpukanPetiI - 1]);
 }
 
 console.log(listTumpukanPeti);
@@ -531,9 +546,18 @@ console.log("jawaban part 1:", listPetiTeratas.join(""));
 
 function pindahPeti(array) {
     const [jumlahPindah, pindahDari, pindahKe] = array;
+    
+    // ~~part 2~~
     const pindahan = listTumpukanPeti[pindahDari - 1].splice(
         -jumlahPindah,
         jumlahPindah
     );
-    listTumpukanPeti[pindahKe - 1].push(pindahan);
+    listTumpukanPeti[pindahKe - 1].push(...pindahan);
+ 
+    // ~~part 1~~
+    // for (let i = 0; i < jumlahPindah; i++) {
+    //     const pindahan = listTumpukanPeti[pindahDari - 1].pop();
+    //     listTumpukanPeti[pindahKe - 1].push(pindahan);
+    // }
+    // console.log(listTumpukanPeti);
 }
