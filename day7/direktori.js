@@ -45,29 +45,33 @@ console.log(dirSum);
 // Part 2
 console.log(dirToDeleteSize);
 
-console.log(fs);
+// console.log(fs);
 
 function iterateSum(obj) {
     let res = 0;
     Object.values(obj).forEach((val) => {
-        if (typeof val === "object") res += iterateSum(val);
-        else res += val;
+        if (typeof val === "object") {
+            res += iterateSum(val);
+        } else {
+            res += val;
+        }
     });
     return res;
-
-    i;
 }
 
 function iterate(obj) {
     Object.values(obj).forEach((val) => {
         if (typeof val === "object") {
             const size = iterateSum(val);
-            if (size < 100000) dirSum += size;
+            if (size < 100000) {
+                dirSum += size;
+            }
             if (
                 70000000 - totalSize + size >= 30000000 &&
                 size <= dirToDeleteSize
-            )
+            ) {
                 dirToDeleteSize = size;
+            }
             iterate(val);
         }
     });
