@@ -1,4 +1,4 @@
-const { parseLines } = require("../utils/index.js");
+import { parseLines } from "../utils/index.js";
 
 const lines = parseLines("./day7/input.txt", true).join(";").split("$ ");
 

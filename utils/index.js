@@ -1,4 +1,4 @@
-const fs = require("fs");
+import { readFileSync as _readFileSync } from "fs";
 
 /**
  * Membaca dan mem-parsing isi berkas menjadi array berisi baris-baris.
@@ -7,8 +7,8 @@ const fs = require("fs");
  * @param {boolean} trim - Opsi untuk memotong spasi pada setiap baris jika diaktifkan.
  * @returns {string[]} Array yang berisi baris-baris dari berkas yang diproses.
  */
-function parseLines(fileName, trim) {
-    const contents = fs.readFileSync(fileName).toString().split("\n");
+export function parseLines(fileName, trim) {
+    const contents = _readFileSync(fileName).toString().split("\n");
     contents.pop();
     if (trim) {
         return contents.map((x) => x.trim());
@@ -22,11 +22,11 @@ function parseLines(fileName, trim) {
  * @param {string} fileName - Nama berkas yang akan dibaca.
  * @returns {string} Isi berkas dalam bentuk teks.
  */
-function parseInput(fileName) {
-    readFileSync(fileName).toString();
+export function parseInput(fileName) {
+    _readFileSync(fileName).toString();
 }
 
-module.exports = {
+export default {
     parseLines,
     parseInput,
 };
