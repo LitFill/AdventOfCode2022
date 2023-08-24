@@ -26,7 +26,16 @@ export function parseInput(fileName) {
     _readFileSync(fileName).toString();
 }
 
-export default {
-    parseLines,
-    parseInput,
-};
+/**
+ * Menjumlah elemen yang ada di sebuah array.
+ *
+ * @param {number[]} array - Array yang ingin dihitung jumlah elemennya.
+ * @returns {number} Jumlah dari semua elemen array.
+ */
+export function jumlahArray(array) {
+    let jumlah = 0;
+    for (let i = 0, len = array.length; i < len; i++) {
+        jumlah += array[i];
+    }
+    return jumlah;
+}
