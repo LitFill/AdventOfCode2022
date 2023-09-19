@@ -1,6 +1,6 @@
 import { parseLines } from "../utils/index.js";
 
-const lines = parseLines("./day7/input.txt", true).join(";").split("$ ");
+const lines = parseLines("./day7/day_7_input.txt", true).join(";").split("$ ");
 
 // console.log(lines);
 
@@ -63,7 +63,7 @@ function iterate(obj) {
     Object.values(obj).forEach((val) => {
         if (typeof val === "object") {
             const size = iterateSum(val);
-            if (size < 100000) {
+            if (size <= 100000) {
                 dirSum += size;
             }
             if (
