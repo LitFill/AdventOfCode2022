@@ -1,12 +1,15 @@
 import { parseLines as pl } from "../utils/index.js";
+import { lintas } from "../utils/index.js";
 
 const lines = pl("./day8/day_8_input.txt", false);
+
 /** @type {number[][]} */
 const trees = [];
 
 for (let i = 0, len = lines.length; i < len; i++) {
     /** @type {number[]} */
     const baris = [];
+
     for (let j = 0; j < lines[i].length; j++) {
         const pohon = Number(lines[i][j]);
         baris.push(pohon);
@@ -15,19 +18,14 @@ for (let i = 0, len = lines.length; i < len; i++) {
 }
 
 // console.log(trees[4]);
+// console.table(trees.splice(0, 5));
+console.log(lintas(trees, 1, 10));
 
 const jumlahPohonLuar = trees.length + trees[0].length - 1;
 // console.log(jumlahPohonLuar);
 
 let pohonTerlihat = 0;
 
-/**
- * @description digunakan untuk mengambil item dalam array 2 dimensi
- * @author LitFill
- * @date 20/09/2023
- * @param {number} arah - arah= atas: 0, kanan: 1, bawah: 2, kiri: 3
- * @param {number} langkah - jarak dari sumber
- *
- * @returns {any} nilai item yang diambil
- */
-function lintas(arah, langkah) {}
+for (let i = 1, n = trees.length; i < n - 1; i++) {
+    for (let j = 1, m = trees[i].length; j < m - 1; j++) {}
+}
