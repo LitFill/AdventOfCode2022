@@ -84,3 +84,22 @@ export function lintas(array, arah, langkah, indexAwal = [0, 0]) {
     // Mengembalikan nilai item yang diambil dari array.
     return array[indexTerkini[0]][indexTerkini[1]];
 }
+
+/**
+ * Mengembalikan nilai maksimal dalam array 2 dimensi.
+ * @param {number[][]} arr - Array 2 dimensi yang akan dicari nilai maksimalnya.
+ * @returns {number} Nilai maksimal dalam array 2 dimensi.
+ */
+export function matrixMax(arr) {
+    let nilaiMaksimal = arr[0][0];
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] > nilaiMaksimal) {
+                nilaiMaksimal = arr[i][j];
+            }
+        }
+    }
+
+    return nilaiMaksimal;
+}
